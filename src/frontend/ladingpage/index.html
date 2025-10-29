@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles/style.css">
+<title>Nexus - Portal do Aluno</title>
+</head>
+<body>
+<nav>
+    <div class="nav-container">
+        <div class="logo">
+            <div class="logo-icon">N</div>
+            <span class="logo-text">NEXUS</span>
+        </div>
+        
+        <div class="nav-links">
+            <button>MEUS CURSOS</button>
+            <button>BIBLIOTECA</button>
+            <button>PROGRESSO</button>
+        </div>
+
+        <div class="user-avatar" id="userAvatar">AS</div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<main>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="current-date" id="currentDate"></div>
+            <h1 class="hero-title">
+                <span id="greeting">Olá</span>, <span class="name" id="userName">Ana</span>
+            </h1>
+            <p class="hero-subtitle">
+                Continue sua jornada de aprendizado. Você está a apenas um passo de alcançar seus objetivos.
+            </p>
+        </section>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">12</div>
+                <div class="stat-label">Cursos Concluídos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">156</div>
+                <div class="stat-label">Horas de Estudo</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">8</div>
+                <div class="stat-label">Certificados</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">23</div>
+                <div class="stat-label">Dias de Sequência</div>
+            </div>
+        </div>
+
+        <!-- Active Courses -->
+        <section>
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Em Andamento</h2>
+                    <div class="section-line"></div>
+                </div>
+                <button class="view-all">Ver Todos →</button>
+            </div>
+            
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-image">
+                        <div class="course-letter">D</div>
+                        <div class="course-badge">EM PROGRESSO</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Design Thinking Avançado</h3>
+                        <p class="course-instructor">Prof. Carlos Mendes</p>
+                        
+                        <div class="progress-container">
+                            <div class="progress-header">
+                                <span class="progress-label">PROGRESSO</span>
+                                <span class="progress-value">67%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 67%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="next-lesson">
+                            <p class="next-lesson-label">Próxima Aula</p>
+                            <p class="next-lesson-title">Prototipagem de Alta Fidelidade</p>
+                            <p class="next-lesson-duration">45min</p>
+                        </div>
+                        
+                        <button class="btn btn-primary">CONTINUAR</button>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-image">
+                        <div class="course-letter">G</div>
+                        <div class="course-badge">EM PROGRESSO</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Gestão de Projetos Ágeis</h3>
+                        <p class="course-instructor">Prof. Marina Costa</p>
+                        
+                        <div class="progress-container">
+                            <div class="progress-header">
+                                <span class="progress-label">PROGRESSO</span>
+                                <span class="progress-value">34%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 34%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="next-lesson">
+                            <p class="next-lesson-label">Próxima Aula</p>
+                            <p class="next-lesson-title">Cerimônias do Scrum</p>
+                            <p class="next-lesson-duration">30min</p>
+                        </div>
+                        
+                        <button class="btn btn-primary">CONTINUAR</button>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-image">
+                        <div class="course-letter">D</div>
+                        <div class="course-badge">EM PROGRESSO</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Desenvolvimento Pessoal</h3>
+                        <p class="course-instructor">Prof. Roberto Alves</p>
+                        
+                        <div class="progress-container">
+                            <div class="progress-header">
+                                <span class="progress-label">PROGRESSO</span>
+                                <span class="progress-value">89%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 89%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="next-lesson">
+                            <p class="next-lesson-label">Próxima Aula</p>
+                            <p class="next-lesson-title">Networking Estratégico</p>
+                            <p class="next-lesson-duration">25min</p>
+                        </div>
+                        
+                        <button class="btn btn-primary">CONTINUAR</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Available Courses -->
+        <section>
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Biblioteca de Cursos</h2>
+                    <div class="section-line"></div>
+                </div>
+            </div>
+            
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-image">
+                        <div class="course-letter">I</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Inteligência Emocional</h3>
+                        <p class="course-instructor">Prof. Juliana Ferreira</p>
+                        
+                        <div class="course-info">
+                            <span>8 módulos</span>
+                            <span>6h</span>
+                        </div>
+                        
+                        <button class="btn btn-outline">COMEÇAR CURSO</button>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-image">
+                        <div class="course-letter">C</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Comunicação Corporativa</h3>
+                        <p class="course-instructor">Prof. André Santos</p>
+                        
+                        <div class="course-info">
+                            <span>6 módulos</span>
+                            <span>4h</span>
+                        </div>
+                        
+                        <button class="btn btn-outline">COMEÇAR CURSO</button>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-image">
+                        <div class="course-letter">L</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Liderança Transformadora</h3>
+                        <p class="course-instructor">Prof. Patricia Lima</p>
+                        
+                        <div class="course-info">
+                            <span>10 módulos</span>
+                            <span>8h</span>
+                        </div>
+                        
+                        <button class="btn btn-outline">COMEÇAR CURSO</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <div class="logo">
+            <div class="logo-icon">N</div>
+            <span class="logo-text">NEXUS</span>
+        </div>
+        
+        <div class="footer-links">
+            <button>Suporte</button>
+            <button>Termos</button>
+            <button>Privacidade</button>
+        </div>
+        
+        <p class="footer-copyright">© 2025 Nexus. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<script src="js/updategreeting.js"></script>
+</body>
+</html>

@@ -8,7 +8,6 @@
 
 :root {
   --dfont: "Poppins"
-  
 }
 
 body {
@@ -29,7 +28,8 @@ div.login {
 }
 
 div.login > div.logo {
-  background-image: url(../assets/symbol-scatter-haikei.png);
+  background-color: black;
+  background-image: url(../assets/images/symbol-scatter-haikei.png);
   height: 80px;
   width: 100%;
   display: flex;
@@ -84,6 +84,11 @@ form div.input-container input {
   font-weight: 300;
 }
 
+form div.input-container:hover {
+  transition: 0.3s ease;
+  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.055);
+}
+
 form div.input-container:focus-within {
   transition: 0.2s ease;
   transform: scale(1.1);
@@ -94,8 +99,7 @@ input:focus {
   outline: none;
 }
 
-form input.submit {
-  transition: 0.4s ease;
+form button.submit {
   margin-top: 24px;
   font-weight: 700;
   font-family: var(--dfont);
@@ -104,15 +108,16 @@ form input.submit {
   background-color: black;
   border: none;
   border-radius: 6px;
+  transition: 0.6s ease;
 }
 
-form input.submit:hover {
+form button.submit:hover {
   background-color: rgb(19, 19, 19);
   transition: 0.3s ease;
   box-shadow: 1px 3px 6px 1px rgba(0, 0, 0, 0.308);
 }
 
-form input.submit:active {
+form button.submit:active {
   background-color: black;
   transition: 0.2s ease-out;
   transform: scale(0.9);
