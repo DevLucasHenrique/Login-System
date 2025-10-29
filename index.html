@@ -13,24 +13,27 @@
     <div class="logo">
       <i class="fa-solid fa-graduation-cap"></i>
     </div>
-    <form action="">
+
+    <form id="form">
       <h1>Login</h1>
+
       <div class="input-container namec">
         <label for="name">Nome</label>
         <input id="name" type="text" placeholder="Duane Williams">
       </div>
+
       <div class="input-container passc">
         <label for="password">Senha</label>
-        <input id="password" type="text" placeholder="Password">
+        <input id="password" type="password" placeholder="Password">
       </div>
 
-      <button class="submit">Enviar</button>
+      <button type="submit" class="submit">Enviar</button>
+      <p id="message" class="response-message"></p>
 
       <p class="n">Não tem uma conta? Cadastre-se</p>
     </form>
   </div>
 
-
-  <script src="src/frontend/js/submit.js"></script>
+  <script src="src/frontend/js/createNewUser.js"></script>
 </body>
 </html>

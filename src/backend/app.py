@@ -1,7 +1,9 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 import json
 
 app = Flask(__name__)
+CORS(app)
 
 with open('src/backend/data/users.json', 'r', encoding='UTF-8') as data:
   users = json.load(data)
@@ -14,7 +16,7 @@ def getUsers():
     return jsonify({"menssage": "users not found"}), 404
 
 @app.route('/users/<string:name>', methods=['GET'])
-def getUsersById(name):
+def getUsersByName(name):
   try:
     for user in users:
       if user.get('name') == name:
@@ -48,6 +50,11 @@ def createNewUser():
   except:
     return jsonify({"menssage": "Not accepted"}), 406
 
-
+@app.route('/users/<string:name>', methods=['DELETE'])
+def deleteUser(name):
+  for index,user in enumerate(users):
+    if user['name'] == name:
+      del users[index]
+  return jsonify({"menssage": "usuário excluido com secesso!"}, users)
 
 app.run(port=5000, host='localhost', debug=True)
