@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="src/frontend/styles/style.css">
-  <link rel="shortcut icon" href="" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.css">
   <title>Login</title>
 </head>
 <body>
@@ -15,12 +14,13 @@
     </div>
 
     <form id="form">
-      <h1>Login</h1>
+      <h1>Sign In</h1>
 
       <div class="input-container namec">
         <label for="name">Nome</label>
         <input id="name" type="text" placeholder="Duane Williams">
       </div>
+      <p class="error-menssage">Não disponivel</p>
 
       <div class="input-container passc">
         <label for="password">Senha</label>
@@ -30,10 +30,10 @@
       <button type="submit" class="submit">Enviar</button>
       <p id="message" class="response-message"></p>
 
-      <p class="n">Não tem uma conta? Cadastre-se</p>
+      <p class="n">Já tem uma conta? <a href="../login/index.html">Login</a></p>
     </form>
   </div>
 
-  <script src="src/frontend/js/createNewUser.js"></script>
+  <script src="../js/createNewUser.js"></script>
 </body>
 </html>

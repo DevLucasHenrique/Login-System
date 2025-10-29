@@ -1,60 +1,68 @@
+# ...existing code...
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+from pathlib import Path
 import json
 
 app = Flask(__name__)
 CORS(app)
 
-with open('src/backend/data/users.json', 'r', encoding='UTF-8') as data:
-  users = json.load(data)
+DATA_PATH = Path(__file__).resolve().parent / "data" / "users.json"
+
+def load_users():
+  if not DATA_PATH.exists():
+    return []
+  with DATA_PATH.open('r', encoding='utf-8') as f:
+    return json.load(f)
+
+def save_users(users):
+  with DATA_PATH.open('w', encoding='utf-8') as f:
+    json.dump(users, f, ensure_ascii=False, indent=2)
+
+users = load_users()
 
 @app.route('/users', methods=['GET'])
 def getUsers():
-  try:
-    return jsonify(users)
-  except:
-    return jsonify({"menssage": "users not found"}), 404
+  return jsonify(users), 200
 
 @app.route('/users/<string:name>', methods=['GET'])
 def getUsersByName(name):
-  try:
-    for user in users:
-      if user.get('name') == name:
-        return jsonify(user)
-      else:
-        return jsonify({"menssage": "User not found"}), 404
-  except:
-    return jsonify({"menssage": "internal server Error"}), 500
-    
+  for user in users:
+    if user.get('name') == name:
+      return jsonify(user), 200
+  return jsonify({"message": "User not found"}), 404
+
 @app.route('/users/<string:name>', methods=['PUT'])
 def editUser(name):
-  try:
-    try:
-      editedUser = request.get_json()
-    except:
-      return jsonify({"menssage": "Not accepted"}), 406
-    
-    for index,user in enumerate(users):
-      if user.get('name') == name:
-        users[index].update(editedUser)
-    return jsonify(users)
-  except: 
-    return jsonify({"menssage": "Server Error"}), 500
+  editedUser = request.get_json(silent=True)
+  if not isinstance(editedUser, dict):
+    return jsonify({"message": "Invalid body"}), 400
+  for i, user in enumerate(users):
+    if user.get('name') == name:
+      users[i].update(editedUser)
+      save_users(users)
+      return jsonify(users[i]), 200
+  return jsonify({"message": "User not found"}), 404
 
 @app.route('/users', methods=['POST'])
 def createNewUser():
-  try:
-    newUser = request.get_json()
-    users.append(newUser)
-    return jsonify(users)
-  except:
-    return jsonify({"menssage": "Not accepted"}), 406
+  newUser = request.get_json(silent=True)
+  if not isinstance(newUser, dict) or 'name' not in newUser:
+    return jsonify({"message": "Invalid body"}), 400
+  if any(u.get('name') == newUser['name'] for u in users):
+    return jsonify({"message": "User already exists"}), 409
+  users.append(newUser)
+  save_users(users)
+  return jsonify(newUser), 201
 
 @app.route('/users/<string:name>', methods=['DELETE'])
 def deleteUser(name):
-  for index,user in enumerate(users):
-    if user['name'] == name:
-      del users[index]
-  return jsonify({"menssage": "usuário excluido com secesso!"}, users)
+  for i, user in enumerate(users):
+    if user.get('name') == name:
+      deleted = users.pop(i)
+      save_users(users)
+      return jsonify({"message": "User deleted", "user": deleted}), 200
+  return jsonify({"message": "User not found"}), 404
 
-app.run(port=5000, host='localhost', debug=True)
+if __name__ == "__main__":
+  app.run(port=5000, host='localhost', debug=True)

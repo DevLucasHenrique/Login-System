@@ -10,6 +10,13 @@
   --dfont: "Poppins"
 }
 
+.error-menssage {
+  position: absolute;
+  bottom: -20%;
+  font-size: 0.8em;
+  color: red;
+}
+
 body {
   width: 100%;
   min-height: 100vh;

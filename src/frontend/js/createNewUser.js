@@ -1,6 +1,6 @@
 const form = document.querySelector('form#form');
+const menssageContainer = document.querySelector('.error-menssage')
 if (!form) throw new Error('Form #form não encontrado');
-const message = document.createElement('p');
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
@@ -20,7 +20,7 @@ form.addEventListener('submit', async (event) => {
   if (!userData.name) {
     animateError('.namec');
     return;
-  }
+  } 
   if (!userData.password) {
     animateError('.passc');
     return;
@@ -28,6 +28,15 @@ form.addEventListener('submit', async (event) => {
 
   try {
     const URL = 'http://localhost:5000/users';
+    const preResp = await fetch(URL)
+    const preUsers = await preResp.json();
+    for(const preUser in preUsers) {
+      if(preUser.name == userData.name) {
+        menssageContainer.textContent = 'Não disponivel!';
+      } else {
+        menssageContainer.textContent = '';
+      }
+    }
     const resp = await fetch(URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="shortcut icon" href="" type="image/x-icon">
+  <title>Login</title>
+</head>
+<body>
+  <div class="login">
+    <div class="logo">
+      <i class="fa-solid fa-graduation-cap"></i>
+    </div>
+
+    <form id="form">
+      <h1>Login</h1>
+
+      <div class="input-container namec">
+        <label for="name">Nome</label>
+        <input id="name" type="text" placeholder="Duane Williams">
+      </div>
+      <p class="error-menssage"></p>
+
+      <div class="input-container passc">
+        <label for="password">Senha</label>
+        <input id="password" type="password" placeholder="Password">
+      </div>
+
+      <button type="submit" class="submit">Enviar</button>
+      <p id="message" class="response-message"></p>
+
+      <p class="n">Não tem uma conta? <a href="src/frontend/signIn/index.html">Cadastre-se</a></p>
+    </form>
+  </div>
+
+  <script type="module" src="../../backend/auth/authenticateUser.js"></script>
+</body>
+</html>
